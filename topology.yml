@@ -13,8 +13,9 @@ hosts:
     nets:
       - public
       - private
-   networks:
-    public:
-      type: switch
-      private:
-      type: switch
+
+networks:
+  public:
+    type: switch
+  private:
+    type: switch
