@@ -1,20 +1,32 @@
-#new topology.yml
+name: library-demo-training-adaptive
+
 hosts:
-  web:
-    image: ubuntu-22.04
-    nets:
-      - public
-  db:
-    image: ubuntu-22.04
-    nets:
-      - private
-  attacker:
-    image: kali-2024.1
-    nets:
-      - public
-      - private
+  - name: server
+    base_box:
+      image: ubuntu-noble-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+routers:
+  - name: router
+    base_box:
+      image: debian-12-x86_64
+      man_user: debian
+    flavor: standard.small
+
 networks:
-  public:
-    type: switch
-  private:
-    type: switch
+  - name: server-switch
+    cidr: 192.168.0.0/24
+    accessible_by_user: False
+
+net_mappings:
+  - host: server
+    network: server-switch
+    ip: 192.168.0.10
+
+router_mappings:
+  - router: router
+    network: server-switch
+    ip: 192.168.0.1
+    
+groups: []

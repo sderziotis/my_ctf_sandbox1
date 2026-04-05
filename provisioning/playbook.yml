@@ -1,17 +1,30 @@
-- hosts: all
+---
+
+- name: disable qxl
+  hosts:
+    - routers
+    - hosts
+  gather_facts: yes
   become: yes
   tasks:
-    - name: Install apache on web server
-      apt:
-        name: apache2
-        state: present
+    - include_role:
+        name: disable-qxl
+      when: ansible_os_family == 'Debian'
 
-    - name: Place example flag on web server
-      copy:
-        content: "FLAG{example_flag}"
-        dest: /var/www/html/flag.txt
+- name: set up server
+  hosts: server
+  become: yes
+  roles:
+    - name: user-access
+      user_access_username: user
+      user_access_password: Password123
+      user_access_sudo: True
+    - name: server
 
-    - name: Install net-tools on attacker
-      apt:
-        name: net-tools
-        state: present
+- name: set up command logging
+  hosts: hosts
+  become: yes
+  roles:
+    - role: sandbox-logging
+      slf_destination_port: '{% if hostvars["man"] is defined -%} 514 {%- else -%} 515 {%- endif %}'
+...
