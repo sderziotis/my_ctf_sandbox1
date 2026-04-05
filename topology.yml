@@ -1,17 +1,21 @@
+# topology.yml
 hosts:
   web:
     image: ubuntu-22.04
-    net: public
+    nets:
+      - public
   db:
     image: ubuntu-22.04
-    net: private
+    nets:
+      - private
   attacker:
     image: kali-2024.1
-    net: public
-    net2: private
+    nets:
+      - public
+      - private
 
 networks:
   public:
-    type: switch  
+    type: switch
   private:
     type: switch
