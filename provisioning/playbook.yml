@@ -15,10 +15,10 @@
   hosts: server
   become: yes
   roles:
-    - name: user-access
-      user_access_username: user
-      user_access_password: Password123
-      user_access_sudo: True
+    - name: Create user with password
+      user: user
+      password: Password123
+      shell: /bin/dash/
     - name: server
 
 - name: set up command logging
