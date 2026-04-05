@@ -13,7 +13,6 @@ hosts:
     nets:
       - public
       - private
-
 networks:
   public:
     type: switch
