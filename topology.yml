@@ -14,7 +14,7 @@ hosts:
       - public
       - private
 networks:
-  public:
+    public:
     type: switch
   private:
     type: switch
