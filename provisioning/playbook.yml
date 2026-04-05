@@ -1,0 +1,17 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install apache on web server
+      apt:
+        name: apache2
+        state: present
+
+    - name: Place example flag on web server
+      copy:
+        content: "FLAG{example_flag}"
+        dest: /var/www/html/flag.txt
+
+    - name: Install net-tools on attacker
+      apt:
+        name: net-tools
+        state: present

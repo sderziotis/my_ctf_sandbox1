@@ -1,0 +1,17 @@
+hosts:
+  web:
+    image: ubuntu-22.04
+    net: public
+  db:
+    image: ubuntu-22.04
+    net: private
+  attacker:
+    image: kali-2024.1
+    net: public
+    net2: private
+
+networks:
+  public:
+    type: switch  
+  private:
+    type: switch
