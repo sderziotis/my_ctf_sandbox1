@@ -1,47 +1,24 @@
-name: library-demo-training
-
-hosts:
-  - name: server
-    base_box:
-      image: ubuntu-noble-x86_64
-      man_user: ubuntu
-    flavor: standard.small
-
-  - name: client
-    base_box:
-      image: ubuntu-noble-x86_64
-      man_user: ubuntu
-    flavor: standard.small
-
-routers:
-  - name: router
-    base_box:
-      image: debian-12-x86_64
-      man_user: debian
-    flavor: standard.small
+name: lateral-movement-lab
 
 networks:
-  - name: server-switch
-    cidr: 192.168.20.0/24
-    accessible_by_user: False
+  - name: lan
+    subnet: 192.168.0.0/24
 
-  - name: client-switch
-    cidr: 192.168.30.0/24
+hosts:
+  - name: attacker
+    image: kali
+    interfaces:
+      - network: lan
+        ip: 192.168.0.3
 
-net_mappings:
-  - host: server
-    network: server-switch
-    ip: 192.168.20.5
-  - host: client
-    network: client-switch
-    ip: 192.168.30.5
+  - name: workstation
+    image: ubuntu-noble-x86_64
+    interfaces:
+      - network: lan
+        ip: 192.168.0.10
 
-router_mappings:
-  - router: router
-    network: server-switch
-    ip: 192.168.20.1
-  - router: router
-    network: client-switch
-    ip: 192.168.30.1
-
-groups: []
+  - name: server
+    image: ubuntu-noble-x86_64
+    interfaces:
+      - network: lan
+        ip: 192.168.0.2
