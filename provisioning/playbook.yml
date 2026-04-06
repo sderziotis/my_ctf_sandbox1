@@ -15,11 +15,20 @@
   hosts: server
   become: yes
   roles:
+    - name: server
+      telnet_port: "{{ telnet_port }}"
+      flag: "{{ alice_flag }}"
+      flag_2: "{{ root_flag }}"
+
+- name: set up client
+  hosts: client
+  become: yes
+  roles:
     - name: user-access
       user_access_username: user
       user_access_password: Password123
       user_access_sudo: True
-    - name: server
+    - name: client
 
 - name: set up command logging
   hosts: hosts

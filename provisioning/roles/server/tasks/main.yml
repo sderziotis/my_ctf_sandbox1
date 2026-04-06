@@ -51,4 +51,8 @@
     content: "{{ flag_2 }}\n"
     mode: '0600'
 
+- name: Create alias for client
+  lineinfile:
+    path: '/etc/hosts'
+    line: '192.168.30.5 client'
 ...
