@@ -48,19 +48,3 @@
           scp secret.txt user@server:/tmp/
         dest: "/home/{{ weak_user }}/.bash_history"
 
-    - name: Deploy Flask app
-      copy:
-        dest: /opt/app.py
-        content: |
-          from flask import Flask
-          app = Flask(__name__)
-
-          @app.route('/')
-          def home():
-              return "Internal Admin Panel"
-
-          if __name__ == '__main__':
-              app.run(host='127.0.0.1', port=5000)
-
-    - name: Run Flask
-      shell: nohup python3 /opt/app.py &
