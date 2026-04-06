@@ -1,0 +1,8 @@
+variables:
+  - name: weak_password
+    type: string
+    value: weakpass
+
+  - name: workstation_ip
+    type: ip
+    value: 192.168.0.10
