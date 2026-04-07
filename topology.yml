@@ -1,11 +1,13 @@
 hosts:
   - name: attacker
-    template: kali
-    ip: 10.0.0.10
+    base_box: kali
+    extra:
+      ip: 10.0.0.10
 
   - name: target
-    template: ubuntu-noble-x86_64
-    ip: 10.0.0.20
+    base_box: ubuntu-noble-x86_64
+    extra:
+      ip: 10.0.0.20
 
 network:
   cidr: 10.0.0.0/24
