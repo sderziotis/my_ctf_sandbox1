@@ -6,3 +6,6 @@ hosts:
   - name: target
     template: ubuntu-noble-x86_64
     ip: 10.0.0.20
+
+network:
+  cidr: 10.0.0.0/24
