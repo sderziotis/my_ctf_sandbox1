@@ -1,0 +1,3 @@
+hints:
+  - "Try using nmap from the attacker machine."
+  - "Check which services are exposed."

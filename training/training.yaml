@@ -1,0 +1,9 @@
+version: "1.0"
+
+name: "attacker-target-training"
+description: "Training scenario with Kali attacker and Ubuntu target."
+
+metadata: "metadata/metadata.yaml"
+tasks:
+  - "tasks/task1.yaml"
+scoring: "scoring/scoring.yaml"

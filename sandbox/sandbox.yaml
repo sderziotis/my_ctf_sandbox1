@@ -1,0 +1,13 @@
+version: "1.0"
+
+name: "attacker-target-sandbox"
+description: "Kali attacker and Ubuntu target for KYPO training."
+
+topology:
+  hosts: "topology/hosts.yaml"
+  network: "topology/network.yaml"
+
+provisioning:
+  ansible: "provisioning/ansible/playbook.yaml"
+  scripts:
+    - "provisioning/scripts/init.sh"

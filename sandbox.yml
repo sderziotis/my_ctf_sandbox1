@@ -1,6 +1,0 @@
-provisioning:
-  - playbook: playbooks/workstation.yml
-    hosts: workstation
-
-  - playbook: playbooks/server.yml
-    hosts: server

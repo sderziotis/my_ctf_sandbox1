@@ -1,0 +1,3 @@
+- name: Base provisioning
+  debug:
+    msg: "Provisioning {{ inventory_hostname }}"
