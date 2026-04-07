@@ -3,7 +3,7 @@ name: my-demo1-v1
 hosts:
   - name: attacker
     base_box:
-      image: kali
+      image: ubuntu-noble-x86_64
       man_user: kali
     flavor: standard.small
 
