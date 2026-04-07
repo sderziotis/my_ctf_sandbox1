@@ -15,7 +15,7 @@
   hosts: target
   become: yes
   roles:
-    - name: server
+    - name: target
       telnet_port: "{{ telnet_port }}"
       flag: "{{ alice_flag }}"
       flag_2: "{{ root_flag }}"
@@ -25,10 +25,10 @@
   become: yes
   roles:
     - name: user-access
-      user_access_username: user
+      user_access_username: kali
       user_access_password: Password123
       user_access_sudo: True
-    - name: client
+    - name: attacker
 
 - name: set up command logging
   hosts: hosts
