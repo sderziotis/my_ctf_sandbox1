@@ -1,4 +1,4 @@
-name: library-demo-training
+name: my demo1
 
 hosts:
   - name: attacker
