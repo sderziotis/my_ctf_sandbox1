@@ -1,4 +1,0 @@
-id: task1
-title: "Initial Recon"
-description: "Use the Kali attacker to discover open ports on the target machine."
-flag: "FLAG{replace_me}"
