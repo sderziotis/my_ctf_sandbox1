@@ -25,7 +25,7 @@
   become: yes
   roles:
     - name: user-access
-      user_access_username: kali
+      user_access_username: user
       user_access_password: Password123
       user_access_sudo: True
     - name: attacker

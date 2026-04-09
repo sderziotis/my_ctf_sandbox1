@@ -4,12 +4,12 @@ hosts:
   - name: attacker
     base_box:
       image: ubuntu-noble-x86_64
-      man_user: kali
+      man_user: ubuntu
     flavor: standard.small
 
   - name: target
     base_box:
-      image: ubuntu-noble-x86_64
+      image: uubuntu-noble-x86_64
       man_user: ubuntu
     flavor: standard.small
 
