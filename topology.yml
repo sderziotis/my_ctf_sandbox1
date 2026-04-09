@@ -9,7 +9,7 @@ hosts:
 
   - name: target
     base_box:
-      image: uubuntu-noble-x86_64
+      image: ubuntu-noble-x86_64
       man_user: ubuntu
     flavor: standard.small
 
