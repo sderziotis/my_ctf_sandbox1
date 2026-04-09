@@ -1,7 +1,7 @@
 ---
-# This is a role for setting up the client.
+# This is a role for setting up the attacker.
 
-- name: Create alias for server
+- name: Create alias for target
   lineinfile:
     path: '/etc/hosts'
     line: '192.168.20.5 target'
