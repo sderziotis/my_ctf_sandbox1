@@ -1,4 +1,4 @@
-name: my-demo1-v1.1
+name: my-demo1-v1-1
 
 hosts:
   - name: attacker
